@@ -1,0 +1,1 @@
+{"version":3,"file":"routeNotFound.js","sourceRoot":"","sources":["../../../src/app/middleware/routeNotFound.ts"],"names":[],"mappings":";;;;;;AACA,8DAAqC;AAE9B,MAAM,aAAa,GAAG,CAAC,GAAY,EAAE,GAAa,EAAE,EAAE;IAC3D,GAAG,CAAC,MAAM,CAAC,qBAAU,CAAC,SAAS,CAAC,CAAC,IAAI,CAAC;QACpC,OAAO,EAAE,KAAK;QACd,OAAO,EAAE,kBAAkB;KAC5B,CAAC,CAAC;AACL,CAAC,CAAC;AALW,QAAA,aAAa,iBAKxB"}

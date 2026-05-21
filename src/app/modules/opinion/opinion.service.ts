@@ -1,37 +1,39 @@
 import type { IOpinion } from "./opinion.interface";
-import { OpinionModel } from "./opinion.model";
+import { MOpinion } from "./opinion.model";
 
-export class OpinionService {
-  async createOpinion(data: Partial<IOpinion>): Promise<IOpinion> {
-    const opinion = await OpinionModel.create(data);
-    return opinion.toObject() as IOpinion;
-  }
+const createOpinion = async (payload: IOpinion) => {
+  const opinion = await MOpinion.create(payload);
+  return opinion;
+};
 
-  async getMyOpinion(bpNumber: string): Promise<IOpinion | null> {
-    const normalized = bpNumber.trim().toUpperCase();
-    const doc = await OpinionModel.findOne({ bpNumber: normalized });
-    return doc ? (doc.toObject() as IOpinion) : null;
-  }
+const getAllOpinion = async () => {
+  const allOpinion = await MOpinion.find().sort({ createdAt: -1 });
+  const totalOpinion = await MOpinion.countDocuments();
+  return { data: allOpinion, meta: { total: totalOpinion } };
+};
 
-  async getAllOpinions(): Promise<IOpinion[]> {
-    const docs = await OpinionModel.find().sort({ createdAt: -1 });
-    return docs.map((d) => d.toObject() as IOpinion);
-  }
+const getSingleOpinion = async (id: string) => {
+  const opinion = await MOpinion.findById(id);
+  return opinion;
+};
 
-  async updateMyOpinion(
-    bpNumber: string,
-    update: Partial<IOpinion>
-  ): Promise<IOpinion | null> {
-    // Don't allow changing bpNumber via this endpoint
-    delete update.bpNumber;
+const updateOpinion = async (id: string, payload: Partial<IOpinion>) => {
+  const opinion = await MOpinion.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return opinion;
+};
 
-    const normalized = bpNumber.trim().toUpperCase();
-    const doc = await OpinionModel.findOneAndUpdate(
-      { bpNumber: normalized },
-      { $set: update },
-      { new: true, runValidators: true }
-    );
+const deleteOpinion = async (id: string) => {
+  const opinion = await MOpinion.findByIdAndDelete(id);
+  return opinion;
+};
 
-    return doc ? (doc.toObject() as IOpinion) : null;
-  }
-}
+export const OpinionServices = {
+  createOpinion,
+  getAllOpinion,
+  getSingleOpinion,
+  updateOpinion,
+  deleteOpinion,
+};

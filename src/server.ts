@@ -1,16 +1,19 @@
-import mongoose from "mongoose";
 import app from "./app";
 import { envVar } from "./app/config/env.config";
+import { connectDB } from "./app/config/db";
 
-const main = () => {
+const main = async () => {
   try {
-    mongoose.connect(envVar.DB_URL);
+    await connectDB();
+
     console.log("DB Connected!");
-    app.listen(envVar.PORT,() => {
+
+    app.listen(envVar.PORT, () => {
       console.log(`Server is running on http://localhost:${envVar.PORT}`);
     });
   } catch (error) {
     console.log(error);
   }
 };
+
 main();

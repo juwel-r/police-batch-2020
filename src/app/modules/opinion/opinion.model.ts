@@ -35,7 +35,7 @@ const OpinionSchema = new Schema<IOpinion>(
     bpNumber: {
       type: String,
       required: true,
-      unique: [true, "You have already a opinion."],
+      unique: [true, "You have already a opinion with this BP Number."],
       validate: bpValidator,
       set: (value: string): string => {
         // Normalize value on save
@@ -54,13 +54,13 @@ const OpinionSchema = new Schema<IOpinion>(
       trim: true,
       lowercase: true,
       match: [/^\S+@\S+\.\S+$/, "Invalid email address"],
-      unique: [true, "You have already a opinion."],
+      unique: [true, "You have already a opinion this email."],
       sparse: true,
     },
     phone: {
       type: String,
       trim: true,
-      unique: [true, "You have already a opinion."],
+      unique: [true, "You have already a opinion with this phone number."],
       sparse: true,
       validate: {
         validator: (val: string | undefined) => val == null || /^01[2-9]\d{8}$/.test(val),
@@ -87,4 +87,4 @@ OpinionSchema.index({ createdAt: -1 });
 //   _id: mongoose.Types.ObjectId;
 // };
 
-export const OpinionModel = model("Opinion", OpinionSchema);
+export const MOpinion = model("Opinion", OpinionSchema);

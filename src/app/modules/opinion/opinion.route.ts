@@ -1,18 +1,18 @@
 import { Router } from "express";
-import { createOpinion, getMyOpinion, getAllOpinions, editMyOpinion } from "./opinion.controller";
+import { OpinionController } from "./opinion.controller";
+import { createOpinionZod, updateOpinionZod } from "./opinion.validation";
+import { zodValidation } from "../../middleware/zodValidation";
 
 const router = Router();
 
-// POST: submit an opinion
-router.post("/", createOpinion);
+router.post("/create", zodValidation(createOpinionZod), OpinionController.createOpinion);
 
-// GET: my opinion by bpNumber
-router.get("/my/:bpNumber", getMyOpinion);
+router.get("/all", OpinionController.getAllOpinion);
 
-// GET: all opinions (for admin)
-router.get("/all", getAllOpinions);
+router.get("/:bpNumber", OpinionController.getSingleOpinion);
 
-// PUT: edit my opinion by bpNumber
-router.put("/my/:bpNumber", editMyOpinion);
+router.patch("/:bpNumber", zodValidation(updateOpinionZod), OpinionController.updateOpinion);
 
-export const opinionRouter =router;
+// router.delete("/:id", OpinionController.deleteOpinion);
+
+export const OpinionRouter = router;

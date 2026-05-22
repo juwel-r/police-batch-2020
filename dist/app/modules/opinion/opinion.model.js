@@ -30,10 +30,10 @@ const bpValidator = {
     },
 };
 const OpinionSchema = new Schema({
-    name: { type: String, required: true, trim: true, maxlength: [30, "Max length is 30 character."] },
+    name: { type: String, required: [true, "Name is required."], trim: true, maxlength: [30, "Max length is 30 character."] },
     bpNumber: {
         type: String,
-        required: true,
+        required: [true, "BP Number is required."],
         unique: [true, "You have already a opinion with this BP Number."],
         validate: bpValidator,
         set: (value) => {
@@ -47,6 +47,7 @@ const OpinionSchema = new Schema({
             return v.toUpperCase();
         },
     },
+    workplace: { type: String, required: [true, "Workplace is required"], trim: true, maxlength: [50, "Max length is 50 character."] },
     email: {
         type: String,
         trim: true,
@@ -65,7 +66,6 @@ const OpinionSchema = new Schema({
             message: "Phone must be 11 digit a valid mobile number.",
         },
     },
-    workstation: { type: String, trim: true, maxlength: [50, "Max length is 50 character."] },
     websiteName: { type: String, trim: true, maxlength: [30, "Max length is 30 character."] },
     features: {
         type: [String],

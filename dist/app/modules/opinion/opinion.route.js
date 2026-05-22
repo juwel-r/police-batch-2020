@@ -8,6 +8,7 @@ const zodValidation_1 = require("../../middleware/zodValidation");
 const router = (0, express_1.Router)();
 router.post("/create", (0, zodValidation_1.zodValidation)(opinion_validation_1.createOpinionZod), opinion_controller_1.OpinionController.createOpinion);
 router.get("/all", opinion_controller_1.OpinionController.getAllOpinion);
+router.get("/reports", opinion_controller_1.OpinionController.getRecommendedData);
 router.get("/:bpNumber", opinion_controller_1.OpinionController.getSingleOpinion);
 router.patch("/:bpNumber", (0, zodValidation_1.zodValidation)(opinion_validation_1.updateOpinionZod), opinion_controller_1.OpinionController.updateOpinion);
 // router.delete("/:id", OpinionController.deleteOpinion);

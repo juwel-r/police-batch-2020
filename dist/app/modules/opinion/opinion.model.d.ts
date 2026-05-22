@@ -64,7 +64,7 @@ export declare const MOpinion: mongoose.Model<IOpinion, {}, {}, {
     }, "id"> & {
         id: string;
     }>;
-    workstation?: mongoose.SchemaDefinitionProperty<string | undefined, IOpinion, mongoose.Document<unknown, {}, IOpinion, {
+    workplace?: mongoose.SchemaDefinitionProperty<string, IOpinion, mongoose.Document<unknown, {}, IOpinion, {
         id: string;
     }, mongoose.DefaultSchemaOptions> & Omit<IOpinion & {
         _id: mongoose.Types.ObjectId;

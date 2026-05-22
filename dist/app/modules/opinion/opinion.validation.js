@@ -24,7 +24,7 @@ exports.createOpinionZod = zod_1.z.object({
         .trim()
         .regex(/^01[2-9]\d{8}$/, "Phone must be 11 digit a valid mobile number.")
         .optional(),
-    workstation: zod_1.z.string().trim().max(50, "Max length is 50 character.").optional(),
+    workplace: zod_1.z.string().trim().min(1, "Workplace is required").max(50, "Max length is 50 character."),
     websiteName: zod_1.z.string().trim().max(30, "Max length is 30 character.").optional(),
     features: zod_1.z.array(zod_1.z.string().trim()).optional().default([]),
     comments: zod_1.z.string().trim().max(1000, "Max length is 1000 character.").optional(),
@@ -37,7 +37,7 @@ exports.updateOpinionZod = zod_1.z.object({
         .trim()
         .regex(/^01[2-9]\d{8}$/, "Phone must be 11 digit a valid mobile number.")
         .optional(),
-    workstation: zod_1.z.string().trim().max(50, "Max length is 50 character.").optional(),
+    workplace: zod_1.z.string().trim().max(50, "Max length is 50 character.").optional(),
     websiteName: zod_1.z.string().trim().max(30, "Max length is 30 character.").optional(),
     features: zod_1.z.array(zod_1.z.string().trim()).optional(),
     comments: zod_1.z.string().trim().max(1000, "Max length is 1000 character.").optional(),

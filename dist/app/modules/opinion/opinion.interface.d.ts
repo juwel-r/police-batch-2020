@@ -4,7 +4,7 @@ export interface IOpinion {
     bpNumber: string;
     email?: string;
     phone?: string;
-    workstation?: string;
+    workplace: string;
     websiteName?: string;
     features: string[];
     comments?: string;

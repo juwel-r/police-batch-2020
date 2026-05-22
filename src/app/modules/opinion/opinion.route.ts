@@ -9,6 +9,8 @@ router.post("/create", zodValidation(createOpinionZod), OpinionController.create
 
 router.get("/all", OpinionController.getAllOpinion);
 
+router.get("/reports", OpinionController.getRecommendedData);
+
 router.get("/:bpNumber", OpinionController.getSingleOpinion);
 
 router.patch("/:bpNumber", zodValidation(updateOpinionZod), OpinionController.updateOpinion);

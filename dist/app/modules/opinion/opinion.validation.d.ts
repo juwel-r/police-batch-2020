@@ -4,7 +4,7 @@ export declare const createOpinionZod: z.ZodObject<{
     bpNumber: z.ZodPipe<z.ZodString, z.ZodTransform<string, string>>;
     email: z.ZodOptional<z.ZodString>;
     phone: z.ZodOptional<z.ZodString>;
-    workstation: z.ZodOptional<z.ZodString>;
+    workplace: z.ZodString;
     websiteName: z.ZodOptional<z.ZodString>;
     features: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodString>>>;
     comments: z.ZodOptional<z.ZodString>;
@@ -13,7 +13,7 @@ export declare const updateOpinionZod: z.ZodObject<{
     name: z.ZodOptional<z.ZodString>;
     email: z.ZodOptional<z.ZodString>;
     phone: z.ZodOptional<z.ZodString>;
-    workstation: z.ZodOptional<z.ZodString>;
+    workplace: z.ZodOptional<z.ZodString>;
     websiteName: z.ZodOptional<z.ZodString>;
     features: z.ZodOptional<z.ZodArray<z.ZodString>>;
     comments: z.ZodOptional<z.ZodString>;

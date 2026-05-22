@@ -46,6 +46,15 @@ const getSingleOpinion = (0, catchAsync_1.catchAsync)((req, res, next) => __awai
         data: opinion,
     });
 }));
+const getRecommendedData = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const opinion = yield opinion_service_1.OpinionServices.getRecommendedData();
+    (0, sendResponse_1.sendRes)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Opinion retrieved Successfully",
+        data: opinion,
+    });
+}));
 const updateOpinion = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { bpNumber } = req.params;
     const opinion = yield opinion_service_1.OpinionServices.updateOpinion(bpNumber, req.body);
@@ -70,6 +79,7 @@ exports.OpinionController = {
     createOpinion,
     getAllOpinion,
     getSingleOpinion,
+    getRecommendedData,
     updateOpinion,
     deleteOpinion,
 };

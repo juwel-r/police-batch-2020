@@ -1,1 +1,1 @@
-{"version":3,"file":"opinion.controller.d.ts","sourceRoot":"","sources":["../../../../src/app/modules/opinion/opinion.controller.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,YAAY,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AAiE/D,eAAO,MAAM,iBAAiB;;;;;;CAM7B,CAAC"}
+{"version":3,"file":"opinion.controller.d.ts","sourceRoot":"","sources":["../../../../src/app/modules/opinion/opinion.controller.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,YAAY,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AA6E/D,eAAO,MAAM,iBAAiB;;;;;;;CAO7B,CAAC"}

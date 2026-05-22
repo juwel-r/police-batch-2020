@@ -28,7 +28,7 @@ export const createOpinionZod = z.object({
     .trim()
     .regex(/^01[2-9]\d{8}$/, "Phone must be 11 digit a valid mobile number.")
     .optional(),
-  workstation: z.string().trim().max(50, "Max length is 50 character.").optional(),
+  workplace: z.string().trim().min(1, "Workplace is required").max(50, "Max length is 50 character."),
   websiteName: z.string().trim().max(30, "Max length is 30 character.").optional(),
   features: z.array(z.string().trim()).optional().default([]),
   comments: z.string().trim().max(1000, "Max length is 1000 character.").optional(),
@@ -42,7 +42,7 @@ export const updateOpinionZod = z.object({
     .trim()
     .regex(/^01[2-9]\d{8}$/, "Phone must be 11 digit a valid mobile number.")
     .optional(),
-  workstation: z.string().trim().max(50, "Max length is 50 character.").optional(),
+  workplace: z.string().trim().max(50, "Max length is 50 character.").optional(),
   websiteName: z.string().trim().max(30, "Max length is 30 character.").optional(),
   features: z.array(z.string().trim()).optional(),
   comments: z.string().trim().max(1000, "Max length is 1000 character.").optional(),

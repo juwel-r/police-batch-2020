@@ -27,9 +27,21 @@ const getAllOpinion = catchAsync(async (req: Request, res: Response, next: NextF
   });
 });
 
+
 const getSingleOpinion = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { bpNumber } = req.params;
   const opinion = await OpinionServices.getSingleOpinion(bpNumber as string);
+
+  sendRes(res, {
+    statusCode: statusCode.OK,
+    success: true,
+    message: "Opinion retrieved Successfully",
+    data: opinion,
+  });
+});
+
+const getRecommendedData = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  const opinion = await OpinionServices.getRecommendedData();
 
   sendRes(res, {
     statusCode: statusCode.OK,
@@ -67,6 +79,7 @@ export const OpinionController = {
   createOpinion,
   getAllOpinion,
   getSingleOpinion,
+  getRecommendedData,
   updateOpinion,
   deleteOpinion,
 };

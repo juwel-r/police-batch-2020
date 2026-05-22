@@ -23,7 +23,7 @@ export declare const OpinionServices: {
             total: number;
         };
     }>;
-    getSingleOpinion: (id: string) => Promise<(import("mongoose").Document<unknown, {}, IOpinion, {
+    getSingleOpinion: (bpNumber: string) => Promise<(import("mongoose").Document<unknown, {}, IOpinion, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<IOpinion & {
         _id: import("mongoose").Types.ObjectId;
@@ -32,7 +32,11 @@ export declare const OpinionServices: {
     }, "id"> & {
         id: string;
     }) | null>;
-    updateOpinion: (id: string, payload: Partial<IOpinion>) => Promise<(import("mongoose").Document<unknown, {}, IOpinion, {
+    getRecommendedData: () => Promise<{
+        websiteNames: any[];
+        features: any[];
+    }>;
+    updateOpinion: (bpNumber: string, payload: Partial<IOpinion>) => Promise<(import("mongoose").Document<unknown, {}, IOpinion, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<IOpinion & {
         _id: import("mongoose").Types.ObjectId;

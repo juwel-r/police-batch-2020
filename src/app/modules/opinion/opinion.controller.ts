@@ -27,7 +27,6 @@ const getAllOpinion = catchAsync(async (req: Request, res: Response, next: NextF
   });
 });
 
-
 const getSingleOpinion = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { bpNumber } = req.params;
   const opinion = await OpinionServices.getSingleOpinion(bpNumber as string);
